@@ -1,375 +1,98 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Christian | Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
-body{
-background:#0a0a0a;
-color:white;
-overflow-x:hidden;
-scroll-behavior:smooth;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.4);
-backdrop-filter:blur(10px);
-z-index:100;
-}
-
-nav h1{
-font-size:22px;
-}
-
-nav ul{
-display:flex;
-gap:40px;
-list-style:none;
-}
-
-nav a{
-text-decoration:none;
-color:white;
-transition:.3s;
-}
-
-nav a:hover{
-color:#4fd1ff;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-}
-
-.hero h1{
-font-size:70px;
-margin-bottom:20px;
-background:linear-gradient(90deg,#4fd1ff,#9b5cff);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-font-size:20px;
-max-width:700px;
-opacity:.8;
-}
-
-.btn{
-margin-top:30px;
-padding:15px 35px;
-background:linear-gradient(90deg,#4fd1ff,#9b5cff);
-border:none;
-border-radius:40px;
-color:white;
-font-size:16px;
-cursor:pointer;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.1);
-}
-
-/* SECTIONS */
-
-section{
-padding:120px 10%;
-}
-
-.title{
-font-size:40px;
-margin-bottom:60px;
-text-align:center;
-}
-
-/* ABOUT */
-
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
-
-.about p{
-line-height:1.8;
-opacity:.85;
-}
-
-/* SKILLS */
-
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-}
-
-.skill-card{
-background:#111;
-padding:40px;
-border-radius:15px;
-transition:.3s;
-border:1px solid #222;
-text-align:center;
-}
-
-.skill-card:hover{
-transform:translateY(-10px);
-border-color:#4fd1ff;
-}
-
-/* PROJECTS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
-}
-
-.project{
-background:#111;
-border-radius:20px;
-overflow:hidden;
-transition:.3s;
-border:1px solid #222;
-}
-
-.project:hover{
-transform:translateY(-10px);
-border-color:#9b5cff;
-}
-
-.project-content{
-padding:30px;
-}
-
-.project h3{
-margin-bottom:10px;
-}
-
-.project p{
-opacity:.8;
-margin-bottom:20px;
-}
-
-.project a{
-text-decoration:none;
-color:#4fd1ff;
-}
-
-/* TIMELINE */
-
-.timeline{
-border-left:2px solid #333;
-padding-left:40px;
-display:flex;
-flex-direction:column;
-gap:50px;
-}
-
-.timeline-item{
-position:relative;
-}
-
-.timeline-item::before{
-content:'';
-width:15px;
-height:15px;
-background:#4fd1ff;
-border-radius:50%;
-position:absolute;
-left:-48px;
-top:5px;
-}
-
-.timeline h4{
-margin-bottom:8px;
-}
-
-/* CONTACT */
-
-.contact{
-text-align:center;
-}
-
-.contact a{
-color:#4fd1ff;
-text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:60px;
-opacity:.6;
-}
-
-</style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
+<canvas id="stars"></canvas>
+
+<div class="cursor-glow"></div>
 
 <nav>
 
 <h1>Christian.dev</h1>
 
 <ul>
+
 <li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#journey">Journey</a></li>
+<li><a href="#future">Future</a></li>
 <li><a href="#contact">Contact</a></li>
+
 </ul>
 
 </nav>
 
 <section class="hero">
 
-<h1>Hi I'm Christian</h1>
+<h1 class="gradient">Hi I'm Christian</h1>
+
+<div class="typing"></div>
 
 <p>
-High school student who loves coding, building websites,
-and experimenting with cool web projects.
+
+High school student who enjoys building websites and experimenting with UI design.
+
 </p>
 
-<button class="btn" onclick="scrollToSection()">Explore</button>
+<button onclick="scrollToSection()">Explore</button>
 
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
 
-<h2 class="title">About Me</h2>
+<h2>About Me</h2>
 
-<div class="about">
-
-<p>
-I'm a high school student that enjoys coding and making websites
-in my free time. I started learning web development just for fun
-and now I spend a lot of time building random projects, testing
-ideas, and experimenting with animations and UI design.
-</p>
+<div class="card">
 
 <p>
-Most of the things I build are just experiments. Sometimes they
-turn into actual websites, sometimes they just stay as fun
-projects. Either way it's how I learn new coding skills and
-get better at development.
+
+I'm a high school student who started coding for fun.
+Now I spend time experimenting with animations, design, and web ideas.
+
 </p>
 
 </div>
 
 </section>
 
-<section id="skills">
+<section id="projects" class="reveal">
 
-<h2 class="title">Things I Like Building</h2>
+<h2>Projects</h2>
 
-<div class="skills">
+<div class="grid">
 
-<div class="skill-card">
-<h3>Websites</h3>
-<p>Modern animated websites using HTML, CSS, and JavaScript.</p>
-</div>
-
-<div class="skill-card">
-<h3>UI Design</h3>
-<p>Clean layouts inspired by modern product websites.</p>
-</div>
-
-<div class="skill-card">
-<h3>Experiments</h3>
-<p>Trying random coding ideas just to see what happens.</p>
-</div>
-
-<div class="skill-card">
-<h3>Animations</h3>
-<p>Smooth scrolling, effects, and interactive design.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="projects">
-
-<h2 class="title">Projects</h2>
-
-<div class="projects">
-
-<div class="project">
-
-<div class="project-content">
+<div class="project card">
 
 <h3>Calculus Tutor</h3>
 
-<p>
-A "tutor" themed website project with a clean UI and hidden features.
-</p>
+<p>Clean styled web project.</p>
 
-<a href="https://67christian67.github.io/Christians-Calculus-Tutor/" target="_blank">
-Open Project →
-</a>
+<a href="https://67christian67.github.io/Christians-Calculus-Tutor/" target="_blank">Open →</a>
 
 </div>
 
-</div>
+<div class="project card">
 
-<div class="project">
+<h3>Satoru UI</h3>
 
-<div class="project-content">
+<p>Anime themed design experiment.</p>
 
-<h3>Anime Theme Project</h3>
-
-<p>
-A themed website experiment with custom styling and design.
-</p>
-
-<a href="https://67christian67.github.io/SAT0RU_V2/" target="_blank">
-Open Project →
-</a>
-
-</div>
+<a href="https://67christian67.github.io/SAT0RU_V2/" target="_blank">Open →</a>
 
 </div>
 
@@ -377,121 +100,75 @@ Open Project →
 
 </section>
 
-<section id="journey">
+<section id="journey" class="reveal">
 
-<h2 class="title">Coding Journey</h2>
+<h2>My Coding Journey</h2>
 
 <div class="timeline">
 
-<div class="timeline-item">
-<h4>Started Learning</h4>
-<p>Got interested in coding and began experimenting with websites.</p>
+<div class="step">
+
+<h3>Started Learning</h3>
+
+<p>First learning HTML.</p>
+
 </div>
 
-<div class="timeline-item">
-<h4>First Projects</h4>
-<p>Built simple HTML websites and learned CSS styling.</p>
+<div class="step">
+
+<h3>Experimenting</h3>
+
+<p>Trying animations and designs.</p>
+
 </div>
 
-<div class="timeline-item">
-<h4>More Advanced</h4>
-<p>Started adding animations, interactions, and JavaScript features.</p>
-</div>
+<div class="step">
 
-<div class="timeline-item">
-<h4>Now</h4>
-<p>Building more creative websites and learning new techniques.</p>
+<h3>Building Projects</h3>
+
+<p>Creating fun websites.</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section id="contact">
+<section id="future" class="reveal">
 
-<h2 class="title">Contact</h2>
+<h2>More Projects Coming</h2>
 
-<div class="contact">
+<div class="card">
 
 <p>
-If you want to check out more of my stuff,
-look at my GitHub.
+
+I constantly experiment with new ideas.
+More projects and designs will appear here as I keep building.
+
 </p>
 
-<br>
-
-<a href="https://github.com/67christian67" target="_blank">
-github.com/67christian67
-</a>
-
 </div>
+
+</section>
+
+<section id="contact" class="reveal">
+
+<h2>Contact</h2>
+
+<p>GitHub</p>
+
+<a href="https://github.com/67christian67" target="_blank">github.com/67christian67</a>
 
 </section>
 
 <footer>
 
-<p>© 2026 Christian | Built for fun</p>
+Built by Christian
 
 </footer>
 
-<script>
-
-/* smooth scroll */
-
-function scrollToSection(){
-document.getElementById("about").scrollIntoView({
-behavior:"smooth"
-})
-}
-
-/* background particles */
-
-const canvas=document.getElementById("bg")
-const ctx=canvas.getContext("2d")
-
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
-
-let particles=[]
-
-for(let i=0;i<120;i++){
-
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-size:Math.random()*2,
-speedX:(Math.random()-.5),
-speedY:(Math.random()-.5)
-})
-
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-particles.forEach(p=>{
-
-p.x+=p.speedX
-p.y+=p.speedY
-
-if(p.x<0||p.x>canvas.width)p.speedX*=-1
-if(p.y<0||p.y>canvas.height)p.speedY*=-1
-
-ctx.beginPath()
-ctx.arc(p.x,p.y,p.size,0,Math.PI*2)
-ctx.fillStyle="white"
-ctx.fill()
-
-})
-
-requestAnimationFrame(animate)
-
-}
-
-animate()
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
