@@ -1,370 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian | Developer</title>
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-<title>Christian | Founder & Builder</title>
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+        /* 3D Background Container */
+        .scene {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
+        }
 
-<style>
+        /* Glassmorphism Card */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #fff; }
 
-body{
-background:#0a0a0a;
-color:white;
-overflow-x:hidden;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
 
-/* NAV */
+        /* Content Sections */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(10px);
-z-index:999;
-}
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-nav h1{
-font-weight:800;
-font-size:22px;
-background:linear-gradient(90deg,#00fff7,#8b5cf6);
--webkit-background-clip:text;
-color:transparent;
-}
+        /* 3D Cube */
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            perspective: 1000px;
+        }
+        .cube-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .face.front  { transform: rotateY(0deg) translateZ(50px); }
+        .face.back   { transform: rotateY(180deg) translateZ(50px); }
+        .face.right  { transform: rotateY(90deg) translateZ(50px); }
+        .face.left   { transform: rotateY(-90deg) translateZ(50px); }
+        .face.top    { transform: rotateX(90deg) translateZ(50px); }
+        .face.bottom { transform: rotateX(-90deg) translateZ(50px); }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-opacity:.8;
-transition:.3s;
-}
-
-nav a:hover{
-opacity:1;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:0 20px;
-background:radial-gradient(circle at center,#111 0%,#000 70%);
-}
-
-.hero h2{
-font-size:70px;
-font-weight:800;
-line-height:1.1;
-background:linear-gradient(90deg,#00fff7,#8b5cf6);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-margin-top:20px;
-font-size:20px;
-opacity:.7;
-}
-
-.buttons{
-margin-top:35px;
-}
-
-.btn{
-padding:14px 28px;
-border-radius:12px;
-text-decoration:none;
-font-weight:600;
-margin:8px;
-display:inline-block;
-transition:.3s;
-}
-
-.primary{
-background:linear-gradient(90deg,#00fff7,#8b5cf6);
-color:black;
-}
-
-.primary:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,255,247,.3);
-}
-
-.secondary{
-border:1px solid rgba(255,255,255,.2);
-}
-
-.secondary:hover{
-background:rgba(255,255,255,.05);
-}
-
-/* SECTIONS */
-
-section{
-padding:120px 10%;
-}
-
-.section-title{
-font-size:38px;
-font-weight:700;
-margin-bottom:40px;
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-}
-
-.card{
-background:#111;
-border-radius:18px;
-padding:30px;
-transition:.35s;
-border:1px solid rgba(255,255,255,.05);
-}
-
-.card:hover{
-transform:translateY(-8px);
-border:1px solid rgba(0,255,247,.4);
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-/* FOUNDER STORY */
-
-.story{
-font-size:18px;
-max-width:750px;
-opacity:.8;
-line-height:1.7;
-}
-
-/* DAD SECTION */
-
-.dad{
-background:linear-gradient(120deg,#020202,#0f0f0f);
-border-radius:25px;
-padding:60px;
-margin-top:40px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.dad h3{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.dad p{
-opacity:.85;
-font-size:17px;
-line-height:1.6;
-}
-
-/* FOOTER */
-
-footer{
-padding:40px;
-text-align:center;
-opacity:.5;
-}
-
-/* ANIMATED BACKGROUND */
-
-.bg-animation{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-overflow:hidden;
-}
-
-.circle{
-position:absolute;
-border-radius:50%;
-filter:blur(120px);
-opacity:.3;
-animation:float 12s infinite ease-in-out alternate;
-}
-
-.c1{width:400px;height:400px;background:#00fff7;top:20%;left:10%;}
-.c2{width:350px;height:350px;background:#8b5cf6;bottom:10%;right:10%;}
-.c3{width:300px;height:300px;background:#00fff7;bottom:30%;left:40%;}
-
-@keyframes float{
-0%{transform:translateY(0)}
-100%{transform:translateY(-80px)}
-}
-
-</style>
+        @keyframes rotate {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="bg-animation">
-<div class="circle c1"></div>
-<div class="circle c2"></div>
-<div class="circle c3"></div>
-</div>
+    <!-- Navigation -->
+    <nav>
+        <div style="font-weight: 700; font-size: 1.2rem;">Cristian.</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-<nav>
-<h1>Christian</h1>
-<div>
-<a href="#projects">Projects</a>
-<a href="#story">Story</a>
-<a href="#vision">Vision</a>
-</div>
-</nav>
+    <!-- 3D Background -->
+    <div class="scene">
+        <div class="cube">
+            <div class="cube-inner">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </div>
 
-<!-- HERO -->
+    <!-- Hero -->
+    <section class="hero">
+        <div class="fade-in">
+            <h1>Building Digital<br>Experiences</h1>
+            <p>I'm a developer focused on creating polished, interactive web applications with modern technologies.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
 
-<section class="hero">
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="fade-in">
+            <h2>About Me</h2>
+            <div class="grid">
+                <div class="glass">
+                    <h3>🚀 Performance</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">Fast, optimized code that runs smoothly on all devices.</p>
+                </div>
+                <div class="glass">
+                    <h3>🎨 Design</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">Clean, modern UI with attention to detail.</p>
+                </div>
+                <div class="glass">
+                    <h3>💻 Development</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">Full-stack solutions with modern frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div>
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="fade-in">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="glass">
+                    <h3>Project 1</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                </div>
+                <div class="glass">
+                    <h3>Project 2</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                </div>
+                <div class="glass">
+                    <h3>Project 3</h3>
+                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Building the Future<br>One Website at a Time</h2>
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="fade-in">
+            <h2>Get In Touch</h2>
+            <p style="color: #888; margin-bottom: 2rem;">Have a project in mind? Let's work together.</p>
+            <a href="mailto:your@email.com" class="btn">Email Me</a>
+        </div>
+    </section>
 
-<p>
-Young developer. Future founder.  
-Creating websites, projects, and ideas that can scale to millions.
-</p>
+    <script>
+        // Smooth Fade-in on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-<div class="buttons">
-<a class="btn primary" href="#projects">View Projects</a>
-<a class="btn secondary" href="#story">My Story</a>
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<h2 class="section-title">Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Personal Portfolio</h3>
-<p>A custom coded site built from scratch to showcase my journey and skills.</p>
-</div>
-
-<div class="card">
-<h3>Future Startup Ideas</h3>
-<p>Working on ideas for future technology companies and tools.</p>
-</div>
-
-<div class="card">
-<h3>Web Experiments</h3>
-<p>Testing new animations, layouts, and creative design concepts.</p>
-</div>
-
-<div class="card">
-<h3>AI + Web</h3>
-<p>Exploring how AI tools can help build faster and smarter websites.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- STORY -->
-
-<section id="story">
-
-<h2 class="section-title">Founder Story</h2>
-
-<p class="story">
-My journey started with curiosity.  
-I wanted to understand how the internet worked, so I started building things myself.
-
-Now I'm learning to design websites, experiment with code, and create projects that could eventually grow into real startups.
-
-The goal isn't just to make websites — it's to build things that matter and reach people around the world.
-</p>
-
-<div class="dad">
-
-<h3>Special Thanks To My Dad</h3>
-
-<p>
-None of this would be possible without my dad.
-
-He supports my curiosity, motivates me to keep building, and encourages me to keep learning even when things get difficult.
-
-Every project I create is possible because of the motivation and support he gives me.
-
-This journey is just beginning — and he's a huge reason why.
-</p>
-
-</div>
-
-</section>
-
-<!-- VISION -->
-
-<section id="vision">
-
-<h2 class="section-title">Vision</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Build Startups</h3>
-<p>Create companies that solve real problems.</p>
-</div>
-
-<div class="card">
-<h3>Learn Constantly</h3>
-<p>Technology evolves fast, so learning never stops.</p>
-</div>
-
-<div class="card">
-<h3>Impact Millions</h3>
-<p>Build products used by people around the world.</p>
-</div>
-
-<div class="card">
-<h3>Think Big</h3>
-<p>The goal is not small projects — it's world-changing ideas.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Christian — Built with curiosity and ambition.
-
-</footer>
-
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
