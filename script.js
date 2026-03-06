@@ -1,4 +1,4 @@
-var typed = new Typed("#typing", {
+new Typed("#typing",{
 strings:[
 "Web Developer",
 "UI Designer",
@@ -10,17 +10,19 @@ backSpeed:30,
 loop:true
 })
 
-particlesJS("particles-js", {
+particlesJS("particles-js",{
 
 particles:{
-number:{value:80},
+
+number:{value:90},
 
 size:{value:3},
 
 move:{speed:2},
 
 line_linked:{
-enable:true
+enable:true,
+opacity:0.2
 }
 
 }
