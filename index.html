@@ -3,183 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristian | Developer</title>
-    <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
-
-        /* 3D Background Container */
-        .scene {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        /* Glassmorphism Card */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .glass:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-        }
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        nav a:hover { color: #fff; }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #888;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Content Sections */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 3D Cube */
-        .cube {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            perspective: 1000px;
-        }
-        .cube-inner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotate 10s infinite linear;
-        }
-        .face {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .face.front  { transform: rotateY(0deg) translateZ(50px); }
-        .face.back   { transform: rotateY(180deg) translateZ(50px); }
-        .face.right  { transform: rotateY(90deg) translateZ(50px); }
-        .face.left   { transform: rotateY(-90deg) translateZ(50px); }
-        .face.top    { transform: rotateX(90deg) translateZ(50px); }
-        .face.bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-        @keyframes rotate {
-            from { transform: rotateX(0deg) rotateY(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg); }
-        }
-    </style>
+    <title>Cristian | Developer Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <!-- Navigation -->
-    <nav>
-        <div style="font-weight: 700; font-size: 1.2rem;">Cristian.</div>
-        <div>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <nav class="navbar">
+        <div class="logo">Cristian<span class="accent">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- 3D Background -->
@@ -196,77 +34,72 @@
         </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="fade-in">
-            <h1>Building Digital<br>Experiences</h1>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Building <span class="gradient-text">Digital Experiences</span></h1>
             <p>I'm a developer focused on creating polished, interactive web applications with modern technologies.</p>
-            <a href="#projects" class="btn">View My Work</a>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section id="about" class="section">
-        <div class="fade-in">
+        <div class="container fade-in">
             <h2>About Me</h2>
             <div class="grid">
-                <div class="glass">
+                <div class="card glass">
                     <h3>🚀 Performance</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">Fast, optimized code that runs smoothly on all devices.</p>
+                    <p>Fast, optimized code that runs smoothly on all devices.</p>
                 </div>
-                <div class="glass">
+                <div class="card glass">
                     <h3>🎨 Design</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">Clean, modern UI with attention to detail.</p>
+                    <p>Clean, modern UI with attention to detail.</p>
                 </div>
-                <div class="glass">
+                <div class="card glass">
                     <h3>💻 Development</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">Full-stack solutions with modern frameworks.</p>
+                    <p>Full-stack solutions with modern frameworks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <section id="projects" class="section">
-        <div class="fade-in">
+        <div class="container fade-in">
             <h2>Projects</h2>
             <div class="grid">
-                <div class="glass">
-                    <h3>Project 1</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                <div class="card glass">
+                    <h3>Christian's Tutor</h3>
+                    <p>  my gaming website.</p>
+                    <a href="https://67christian67.github.io/Christians-Calculus-Tutor/" target="_blank" class="link">View Project →</a>
                 </div>
-                <div class="glass">
+                <div class="card glass">
                     <h3>Project 2</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                    <p>A brief description of your project goes here.</p>
+                    <a href="#" class="link">View Project →</a>
                 </div>
-                <div class="glass">
+                <div class="card glass">
                     <h3>Project 3</h3>
-                    <p style="color: #888; margin-top: 0.5rem;">A brief description of your project goes here.</p>
+                    <p>A brief description of your project goes here.</p>
+                    <a href="#" class="link">View Project →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="section">
-        <div class="fade-in">
+        <div class="container fade-in">
             <h2>Get In Touch</h2>
             <p style="color: #888; margin-bottom: 2rem;">Have a project in mind? Let's work together.</p>
-            <a href="mailto:your@email.com" class="btn">Email Me</a>
+            <a href="mailto:your@email.com" class="btn btn-primary">Email Me</a>
         </div>
     </section>
 
-    <script>
-        // Smooth Fade-in on Scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
