@@ -1,22 +1,28 @@
-new Typed("#typing", {
-
+var typed = new Typed("#typing", {
 strings:[
 "Web Developer",
-"Future Software Engineer",
-"Building Cool Projects",
-"Learning Something New Everyday"
+"UI Designer",
+"JavaScript Builder",
+"Future Software Engineer"
 ],
-
-typeSpeed:60,
-backSpeed:40,
+typeSpeed:50,
+backSpeed:30,
 loop:true
-
 })
 
-function scrollProjects(){
+particlesJS("particles-js", {
 
-document.getElementById("projects").scrollIntoView({
-behavior:"smooth"
-})
+particles:{
+number:{value:80},
+
+size:{value:3},
+
+move:{speed:2},
+
+line_linked:{
+enable:true
+}
 
 }
+
+})
