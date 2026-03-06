@@ -1,1 +1,167 @@
-*{\nmargin:0;\npadding:0;\nbox-sizing:border-box;\nfont-family:'Inter',sans-serif;\n}\n\nbody{\nbackground:#0a0a0a;\ncolor:white;\noverflow-x:hidden;\n}\n\n#particles-js{\nposition:fixed;\nwidth:100%;\nheight:100%;\nz-index:-1;\n}\n\nnav{\n\ndisplay:flex;\njustify-content:space-between;\nalign-items:center;\n\npadding:20px 10%;\n\nposition:fixed;\nwidth:100%;\n\nbackground:rgba(0,0,0,0.4);\nbackdrop-filter:blur(10px);\n\n}\n\nnav ul{\ndisplay:flex;\ngap:30px;\nlist-style:none;\n}\n\nnav a{\ncolor:white;\ntext-decoration:none;\nopacity:0.8;\n}\n\n.hero{\n\nheight:100vh;\n\ndisplay:flex;\nflex-direction:column;\njustify-content:center;\nalign-items:center;\n\ntext-align:center;\npadding:20px;\n\n}\n\n.hero h1{\n\nfont-size:70px;\n\nbackground:linear-gradient(90deg,#00eaff,#8a2eff);\n-webkit-background-clip:text;\ncolor:transparent;\n\n}\n\n.hero p{\nmax-width:600px;\nmargin-top:20px;\nopacity:0.7;\n}\n\n.btn{\n\nmargin-top:30px;\npadding:14px 32px;\n\nbackground:linear-gradient(90deg,#00eaff,#8a2eff);\n\nborder-radius:40px;\n\ntext-decoration:none;\ncolor:white;\n\ntransition:0.3s;\n\n}\n\n.btn:hover{\n\ntransform:scale(1.1);\n\n}\n\nsection{\npadding:120px 10%;\ntext-align:center;\n}\n\n.project-grid{\ndisplay:flex;\njustify-content:center;\ngap:40px;\n\nmargin-top:60px;\nflex-wrap:wrap;\n}\n\n.card{\n\nwidth:260px;\npadding:30px;\n\nbackground:#111;\nborder-radius:20px;\n\nborder:1px solid rgba(255,255,255,0.05);\n\ntransition:0.4s;\n}\n\n.card:hover{\n\ntransform:translateY(-10px);\n\nbox-shadow:0 0 40px rgba(0,255,255,0.4);\n}\n\nfooter{\npadding:40px;\ntext-align:center;\nopacity:0.4;\n}\n\n.fade-in{\nopacity:0;\ntransform:translateY(20px);\nanimation:fade 1s forwards;\n}\n.delay{\nanimation-delay:0.4s;\n}\n.delay2{\nanimation-delay:0.8s;\n}\n\n@keyframes fade{\nto{\nopacity:1;\ntransform:translateY(0);\n}\n}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter;
+}
+
+body{
+background:#060606;
+color:white;
+overflow-x:hidden;
+}
+
+/* star background */
+
+#stars{
+position:fixed;
+top:0;
+left:0;
+z-index:-2;
+}
+
+/* cursor glow */
+
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle,#4fc3ff33,transparent);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+/* nav */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(10px);
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+opacity:.7;
+}
+
+nav a:hover{
+opacity:1;
+color:#4fc3ff;
+}
+
+/* hero */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:80px;
+font-weight:800;
+}
+
+.gradient{
+background:linear-gradient(90deg,#4fc3ff,#9c6cff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero button{
+margin-top:30px;
+padding:15px 40px;
+border-radius:40px;
+border:none;
+background:linear-gradient(90deg,#4fc3ff,#9c6cff);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* sections */
+
+section{
+padding:120px 20px;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+h2{
+font-size:40px;
+margin-bottom:40px;
+}
+
+/* cards */
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+border-radius:16px;
+padding:30px;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* grid */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+/* timeline */
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:40px;
+}
+
+.step{
+border-left:3px solid #4fc3ff;
+padding-left:20px;
+text-align:left;
+}
+
+/* reveal */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+footer{
+padding:60px;
+text-align:center;
+opacity:.5;
+}
