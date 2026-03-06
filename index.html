@@ -1,208 +1,359 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Christian | Developer</title>
+<title>Christian | Founder & Builder</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
 
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+body{
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+}
 
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+nav h1{
+font-weight:800;
+font-size:22px;
+background:linear-gradient(90deg,#00fff7,#8b5cf6);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+opacity:.8;
+transition:.3s;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+background:radial-gradient(circle at center,#111 0%,#000 70%);
+}
+
+.hero h2{
+font-size:70px;
+font-weight:800;
+line-height:1.1;
+background:linear-gradient(90deg,#00fff7,#8b5cf6);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+font-size:20px;
+opacity:.7;
+}
+
+.buttons{
+margin-top:35px;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+margin:8px;
+display:inline-block;
+transition:.3s;
+}
+
+.primary{
+background:linear-gradient(90deg,#00fff7,#8b5cf6);
+color:black;
+}
+
+.primary:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,255,247,.3);
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.2);
+}
+
+.secondary:hover{
+background:rgba(255,255,255,.05);
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 10%;
+}
+
+.section-title{
+font-size:38px;
+font-weight:700;
+margin-bottom:40px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:#111;
+border-radius:18px;
+padding:30px;
+transition:.35s;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+transform:translateY(-8px);
+border:1px solid rgba(0,255,247,.4);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+/* FOUNDER STORY */
+
+.story{
+font-size:18px;
+max-width:750px;
+opacity:.8;
+line-height:1.7;
+}
+
+/* DAD SECTION */
+
+.dad{
+background:linear-gradient(120deg,#020202,#0f0f0f);
+border-radius:25px;
+padding:60px;
+margin-top:40px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.dad h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.dad p{
+opacity:.85;
+font-size:17px;
+line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+opacity:.5;
+}
+
+/* ANIMATED BACKGROUND */
+
+.bg-animation{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.3;
+animation:float 12s infinite ease-in-out alternate;
+}
+
+.c1{width:400px;height:400px;background:#00fff7;top:20%;left:10%;}
+.c2{width:350px;height:350px;background:#8b5cf6;bottom:10%;right:10%;}
+.c3{width:300px;height:300px;background:#00fff7;bottom:30%;left:40%;}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-80px)}
+}
+
+</style>
 </head>
 
 <body>
 
-<div id="particles-js"></div>
-
-<header>
-
-<h1 class="logo">Christian.dev</h1>
+<div class="bg-animation">
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+</div>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
+<h1>Christian</h1>
+<div>
 <a href="#projects">Projects</a>
-<a href="#support">Support</a>
-<a href="#future">Future</a>
+<a href="#story">Story</a>
+<a href="#vision">Vision</a>
+</div>
 </nav>
 
-</header>
+<!-- HERO -->
 
-<section id="home" class="hero">
+<section class="hero">
 
-<h1>Hello, I'm Christian 👋</h1>
+<div>
 
-<h2><span id="typing"></span></h2>
-
-<p>
-High school developer building fun projects, experimenting with UI,
-and learning how the internet works.
-</p>
-
-<a href="#projects" class="btn">View My Projects</a>
-
-</section>
-
-<section id="about">
-
-<h2 class="section-title">About Me</h2>
+<h2>Building the Future<br>One Website at a Time</h2>
 
 <p>
-I'm a high school student who enjoys coding websites, experimenting
-with UI ideas, and learning new technologies.
+Young developer. Future founder.  
+Creating websites, projects, and ideas that can scale to millions.
 </p>
 
-<p>
-Most of my projects are creative experiments where I try to make
-cool interactive websites just for fun and learning.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<h3 class="counter">12</h3>
-<p>Projects</p>
-</div>
-
-<div class="stat">
-<h3 class="counter">3</h3>
-<p>Years Coding</p>
-</div>
-
-<div class="stat">
-<h3 class="counter">999</h3>
-<p>Ideas</p>
+<div class="buttons">
+<a class="btn primary" href="#projects">View Projects</a>
+<a class="btn secondary" href="#story">My Story</a>
 </div>
 
 </div>
 
 </section>
 
-<section id="skills">
-
-<h2 class="section-title">Skills</h2>
-
-<div class="skill">
-<p>HTML</p>
-<div class="bar"><div data-width="95%"></div></div>
-</div>
-
-<div class="skill">
-<p>CSS</p>
-<div class="bar"><div data-width="90%"></div></div>
-</div>
-
-<div class="skill">
-<p>JavaScript</p>
-<div class="bar"><div data-width="80%"></div></div>
-</div>
-
-<div class="skill">
-<p>UI / Design</p>
-<div class="bar"><div data-width="85%"></div></div>
-</div>
-
-</section>
+<!-- PROJECTS -->
 
 <section id="projects">
 
 <h2 class="section-title">Projects</h2>
 
-<div class="projects">
+<div class="grid">
 
 <div class="card">
-
-<h3>Calculus Tutor</h3>
-
-<p>
-A browser-based math tool experiment.
-</p>
-
-<a href="https://67christian67.github.io/Christians-Calculus-Tutor/" target="_blank">
-Launch
-</a>
-
+<h3>Personal Portfolio</h3>
+<p>A custom coded site built from scratch to showcase my journey and skills.</p>
 </div>
 
 <div class="card">
+<h3>Future Startup Ideas</h3>
+<p>Working on ideas for future technology companies and tools.</p>
+</div>
 
-<h3>Satoru UI</h3>
+<div class="card">
+<h3>Web Experiments</h3>
+<p>Testing new animations, layouts, and creative design concepts.</p>
+</div>
 
-<p>
-Anime-inspired glowing UI design experiment.
-</p>
-
-<a href="https://67christian67.github.io/SAT0RU_V2/" target="_blank">
-Launch
-</a>
-
+<div class="card">
+<h3>AI + Web</h3>
+<p>Exploring how AI tools can help build faster and smarter websites.</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="support">
+<!-- STORY -->
 
-<h2 class="section-title">Support</h2>
+<section id="story">
 
-<div class="support">
+<h2 class="section-title">Founder Story</h2>
 
-<h3>My Dad's Support</h3>
+<p class="story">
+My journey started with curiosity.  
+I wanted to understand how the internet worked, so I started building things myself.
 
-<p>
-A big reason I'm able to build projects and explore coding
-is because of my dad's encouragement.
+Now I'm learning to design websites, experiment with code, and create projects that could eventually grow into real startups.
+
+The goal isn't just to make websites — it's to build things that matter and reach people around the world.
 </p>
 
-<p>
-He's always motivated me to keep learning,
-experiment with technology, and keep building things.
-</p>
+<div class="dad">
+
+<h3>Special Thanks To My Dad</h3>
 
 <p>
-Having someone support what you're doing makes a huge
-difference, and it's a big part of why I keep creating projects.
+None of this would be possible without my dad.
+
+He supports my curiosity, motivates me to keep building, and encourages me to keep learning even when things get difficult.
+
+Every project I create is possible because of the motivation and support he gives me.
+
+This journey is just beginning — and he's a huge reason why.
 </p>
 
 </div>
 
 </section>
 
-<section id="future">
+<!-- VISION -->
 
-<h2 class="section-title">Future Roadmap</h2>
+<section id="vision">
 
-<div class="timeline">
+<h2 class="section-title">Vision</h2>
 
-<div class="timeline-item">
-<h3>More Web Experiments</h3>
-<p>Trying new UI concepts and animations.</p>
+<div class="grid">
+
+<div class="card">
+<h3>Build Startups</h3>
+<p>Create companies that solve real problems.</p>
 </div>
 
-<div class="timeline-item">
-<h3>AI Projects</h3>
-<p>Learning how to build smarter tools.</p>
+<div class="card">
+<h3>Learn Constantly</h3>
+<p>Technology evolves fast, so learning never stops.</p>
 </div>
 
-<div class="timeline-item">
-<h3>Interactive Apps</h3>
-<p>Creating more complex browser tools.</p>
+<div class="card">
+<h3>Impact Millions</h3>
+<p>Build products used by people around the world.</p>
 </div>
 
-<div class="timeline-item">
-<h3>Bigger Projects</h3>
-<p>Building larger and more advanced websites.</p>
+<div class="card">
+<h3>Think Big</h3>
+<p>The goal is not small projects — it's world-changing ideas.</p>
 </div>
 
 </div>
@@ -211,11 +362,9 @@ difference, and it's a big part of why I keep creating projects.
 
 <footer>
 
-<p>Built by Christian • Future Developer</p>
+© 2026 Christian — Built with curiosity and ambition.
 
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
