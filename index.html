@@ -1,125 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Christian | Student Developer</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:#0a0a0a;
-color:white;
-text-align:center;
-}
+<link rel="stylesheet" href="css/style.css">
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle at top,#1a1a2e,#000);
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-h1{
-font-size:60px;
-margin:10px;
-}
-
-p{
-max-width:600px;
-line-height:1.6;
-}
-
-button{
-padding:15px 30px;
-margin-top:20px;
-border:none;
-border-radius:30px;
-background:#5a6cff;
-color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-.projects{
-padding:80px 20px;
-}
-
-.project-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-max-width:900px;
-margin:auto;
-}
-
-.card{
-background:#111;
-padding:30px;
-border-radius:20px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-background:#181818;
-}
-
-a{
-color:#7ea2ff;
-text-decoration:none;
-}
-
-footer{
-padding:40px;
-opacity:0.7;
-}
-</style>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 </head>
 
+
 <body>
 
+<div id="particles-js"></div>
+
+
+<nav>
+
+<div class="logo">Christian</div>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+
 <section class="hero">
-<h1>Hey, I'm Christian</h1>
-<p>A high school student who loves coding and building websites for fun.</p>
-<button onclick="document.querySelector('.projects').scrollIntoView({behavior:'smooth'})">
-See My Projects
-</button>
+
+<h1 class="fade-in">High School Developer</h1>
+
+<p class="fade-in delay">
+I like building websites, experimenting with UI design, and
+turning random ideas into projects on the internet.
+</p>
+
+<a href="#projects" class="btn fade-in delay2">View Projects</a>
+
 </section>
 
-<section class="projects">
 
-<h2>My Projects</h2>
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+I'm a high school student who enjoys coding websites for fun.
+Most of my projects are experiments with design, animations,
+and different web ideas.
+</p>
+
+</section>
+
+
+
+<section id="projects">
+
+<h2>Projects</h2>
 
 <div class="project-grid">
 
-<div class="card">
-<h3>Christian's Calculus Tutor</h3>
-<p>A browser-based calculus tool I built.</p>
+
 <a href="https://67christian67.github.io/Christians-Calculus-Tutor/" target="_blank">
-Open Project →
-</a>
-</div>
 
 <div class="card">
-<h3>SAT0RU V2</h3>
-<p>An anime-themed interactive website project.</p>
-<a href="https://67christian67.github.io/SAT0RU_V2/" target="_blank">
-Open Project →
-</a>
+
+<h3>Calculus Tutor</h3>
+
+<p>
+A school styled interface project built as a web experiment.
+</p>
+
 </div>
+
+</a>
+
+
+<a href="https://67christian67.github.io/SAT0RU_V2/" target="_blank">
+
+<div class="card">
+
+<h3>Satoru UI</h3>
+
+<p>
+Anime inspired glowing UI and visual design experiment.
+</p>
+
+</div>
+
+</a>
+
 
 </div>
 
 </section>
 
+
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>More projects coming soon.</p>
+
+</section>
+
+
+
 <footer>
-<p>Built by Christian • Student Developer</p>
+
+<p>Built by Christian</p>
+
 </footer>
+
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
